@@ -4,28 +4,30 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="We outscaled (feed-forward) transformers and generalized reasoning/system 2 thinking to any modality and problem. This is done by training a new class of models called Energy-Based Transformers (EBTs), which are energy based models designed for scalability, parallelizability, stability, and the ability to learn to think from unsupervised learning. The results are absolutely amazing--outscaling feed-forward transformers across modalities and axes (i.e. FLOPs, parameters, depth, even data).">
-  <meta property="og:title" content="Energy-Based Transformers: Outscaling Transformers and Generalizable Reasoning"/>
-  <meta property="og:description" content="Learn how Energy-Based Transformers (EBTs) enable improved scalability over traditional transformers while generalizing reasoning/thinking capabilities to be learned on any problem. #AI #DeepLearning #EBMs #Transformers #reasonig #system 2 thinking"/>
-  <meta property="og:url" content="https://energy-based-transformers.github.io/"/>
+  <meta name="description" content="Explorative Modeling (XM) is a new paradigm for handling multimodality in generative models. A model explores many candidate generations and reinforces only the best-matching one, so its predictions capture individual modes instead of blurring them. XM unlocks a new scaling axis for existing generative models and is the first reconstructive generative model to succeed with end-to-end training.">
+  <meta property="og:title" content="Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling"/>
+  <meta property="og:description" content="Explorative Modeling (XM) lets a model explore many candidate generations and reinforces only the best-matching one, capturing individual modes instead of blurring them. XM opens a new scaling axis for generative models and is the first reconstructive model to succeed with end-to-end training. #AI #DeepLearning #GenerativeModeling #Diffusion"/>
+  <meta property="og:url" content="https://explorative-modeling.github.io/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- TODO: banner.png is still the old EBT banner; replace with an Explorative Modeling social-preview image (1200x630). -->
   <meta property="og:image" content="static/images/banner.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="Energy-Based Transformers: Outscaling Transformers and Generalizable Reasoning">
-  <meta name="twitter:description" content="We outscaled (feed-forward) transformers and generalized reasoning/system 2 thinking to any modality and problem. This is done by training a new class of models called Energy-Based Transformers (EBTs), which are energy based models designed for scalability, parallelizability, stability, and the ability to learn to think from unsupervised learning. The results are absolutely amazing--outscaling feed-forward transformers across modalities and axes (i.e. FLOPs, parameters, depth, even data).">
+  <meta name="twitter:title" content="Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling">
+  <meta name="twitter:description" content="Explorative Modeling (XM) lets a model explore many candidate generations and reinforces only the best-matching one, capturing individual modes instead of blurring them. A new scaling axis for generative models, and the first reconstructive model to succeed with end-to-end training.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- TODO: banner.png is still the old EBT banner; replace with an Explorative Modeling social-preview image (1200x630). -->
   <meta name="twitter:image" content="static/images/banner.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="deep learning, ai, reasoning, system 2 thinking, scaling, energy based models, energy-based models, transformers, ebms, verification, scaling law, test-time compute, inference-time compute, cognitively inspired energy based world models">
+  <meta name="keywords" content="deep learning, ai, generative modeling, explorative modeling, exploration, multimodality, mode forcing, diffusion models, flow matching, jumpy generative models, end-to-end generative modeling, scaling, scaling law, reconstructive generative models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Energy-Based Transformers are Scalable Learners and Thinkers</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🙃</text></svg>">
+  <title>Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -53,119 +55,71 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title"><span style="color: #0066cc;">Energy-Based Transformers</span> are Scalable Learners and Thinkers</h1>
+            <h1 class="title is-1 publication-title"><span style="color: #0066cc;">Explorative Modeling</span>: Unlocking A New Scaling Axis and End-to-End Generative Modeling</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://alexiglad.github.io" target="_blank">Alexi Gladstone</a>,</span>
-                <span class="author-block"><a href="https://nanduruganesh.github.io/" target="_blank">Ganesh Nanduru</a>,</span>
-                <span class="author-block"><a href="https://mmiakashs.github.io/" target="_blank">Md Mofijul Islam</a>,</span>
-                <span class="author-block"><a href="https://hanpx20.github.io/" target="_blank">Peixuan Han</a>,</span>
-                <span class="author-block"><a href="https://hyeonjeongha.github.io/" target="_blank">Hyeonjeong Ha</a>,</span>
-                <span class="author-block"><a href="https://aman.info/" target="_blank">Aman Chadha</a>,</span>
-                <span class="author-block"><a href="https://yilundu.github.io/" target="_blank">Yilun Du</a>,</span>
-                <span class="author-block"><a href="https://blender.cs.illinois.edu/hengji.html" target="_blank">Heng Ji</a>,</span>
-                <span class="author-block"><a href="https://jundongli.github.io/" target="_blank">Jundong Li</a>,</span>
-                <span class="author-block"><a href="https://www.tiqbal.com/" target="_blank">Tariq Iqbal</a></span>
+                <a href="https://alexiglad.github.io" target="_blank">Alexi Gladstone</a><sup>1</sup>,</span>
+                <span class="author-block"><a href="https://blender.cs.illinois.edu/hengji.html" target="_blank">Heng Ji</a><sup>1</sup>,</span>
+                <span class="author-block"><a href="https://yilundu.github.io/" target="_blank">Yilun Du</a><sup>2</sup></span>
               </div>
 
-              <!-- <div class="is-size-5 publication-authors">
-                <span class="author-block">Institution Name<br>Conferance name and year</span>
-                <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-              </div> -->
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>UIUC&nbsp;&nbsp;&nbsp;<sup>2</sup>Harvard</span>
+              </div>
 
               <div class="column has-text-centered">
                 <div class="publication-links">
-                     <!-- Arxiv PDF link -->
+                     <!-- Paper link (under construction) -->
                   <span class="link-block">
-                    <a href="static/pdfs/paper.pdf" target="_blank"
-                    class="button is-normal is-rounded is-dark">
+                    <span class="button is-normal is-rounded is-dark under-construction"
+                    title="Under construction — coming soon">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
-                  </a>
+                    <span class="soon-badge">SOON</span>
+                  </span>
                 </span>
 
 
-                    <!-- ArXiv abstract Link -->
+                    <!-- arXiv link (under construction) -->
                   <span class="link-block">
-                    <a href="https://arxiv.org/abs/2507.02092" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="button is-normal is-rounded is-dark under-construction"
+                    title="Under construction — coming soon">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
                     <span>arXiv</span>
-                  </a>
+                    <span class="soon-badge">SOON</span>
+                  </span>
                 </span>
 
-              <!-- Github link -->
+              <!-- Code link (under construction) -->
               <span class="link-block">
-                <a href="https://github.com/alexiglad/EBT" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
+                <span class="button is-normal is-rounded is-dark under-construction"
+                title="Under construction — coming soon">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
                 <span>Code</span>
-              </a>
+                <span class="soon-badge">SOON</span>
+              </span>
             </span>
 
-            <!-- Blog link -->
+            <!-- Tweet link (under construction) -->
             <span class="link-block">
-              <a href="https://alexiglad.github.io/blog/2025/ebt/" target="_blank"
-              class="external-link button is-normal is-rounded is-dark">
+              <span class="button is-normal is-rounded is-dark under-construction"
+              title="Under construction — coming soon">
               <span class="icon">
-                <i class="fas fa-newspaper"></i>
+                <i class="fab fa-twitter"></i>
               </span>
-              <span>Blog</span>
-            </a>
+              <span>Tweet</span>
+              <span class="soon-badge">SOON</span>
+            </span>
           </span>
 
-            <!-- Hugging Face link -->
-            <span class="link-block">
-              <a href="https://huggingface.co/papers/2507.02092" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg"
-                       alt="Hugging Face" style="height:1em;" />
-                </span>
-                <span>HF Paper</span>
-              </a>
-            </span>
 
-            <!-- Twitter link -->
-            <span class="link-block">
-              <a href="https://x.com/AlexiGlad/status/1942231878305714462" target="_blank"
-                 class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fab fa-twitter"></i>
-                </span>
-                <span>Tweet</span>
-              </a>
-            </span>
-
-          <!-- YouTube Video link -->
-          <span class="link-block">
-            <a href="https://youtu.be/RAEy3JZmIaA?si=xNPLMX0miujFQn2B" target="_blank"
-            class="external-link button is-normal is-rounded is-dark">
-            <span class="icon">
-              <i class="fab fa-youtube"></i>
-            </span>
-            <span>Video</span>
-          </a>
-        </span>
-
-        <!-- Related Works page link -->
-        <span class="link-block">
-          <a href="related.html" class="button is-normal is-rounded is-danger pop-button attention-pulse">
-            <span class="icon">
-              <i class="fas fa-link"></i>
-            </span>
-            <span><span class="new-badge">NEW</span> EBT Works</span>
-          </a>
-        </span>
-
-            
         </div>
       </div>
     </div>
@@ -182,7 +136,7 @@
         <h2 class="title is-3">TL;DR</h2>
         <div class="content has-text-justified">
           <p>
-            Energy-Based Transformers (EBTs) <strong>outscale</strong> (feed-forward) transformers while <strong>generalizing</strong> reasoning/system 2 thinking to any modality/problem <strong>without</strong> requiring verifiable rewards! EBTs are the <strong>first approach</strong> to outscale feed-forward transformers across modalities and with respect to several axes including data, depth, parameters, FLOPs, etc. EBTs can also think over every single prediction being made (i.e. every token in language modeling) and <strong>generalize better</strong> than existing models.
+            <strong>Explorative Modeling (XM)</strong> is a new paradigm for handling multimodality in generative models: instead of <strong>factoring the generation procedure into smaller steps</strong> during training (the trick every existing scalable approach relies on), a model <strong>explores many candidate generations and reinforces only the best-matching one</strong>, so its predictions capture individual modes instead of blurring them. This is useful in two distinct ways. First, exploration is a <strong>new scaling axis</strong> for existing generative models, yielding up to <strong>53% better FLOP efficiency, 2.5× better data efficiency, and 47% better parameter efficiency</strong>—and, like data and parameters, these gains <strong>grow monotonically with scale</strong>. Second, as a standalone model, XM is the <strong>first reconstructive generative model to succeed with end-to-end training</strong>, achieving <strong>20–250× inference speedups</strong> while matching diffusion on certain tasks.
           </p>
         </div>
       </div>
@@ -191,25 +145,19 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser / Overview (under construction) -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="columns is-vcentered">
-        <div class="column has-text-centered">
-          <img src="static/gifs/ezgif.com-animated-gif-maker_video.gif" alt="Energy Based Transformer Video Prediction as Thinking" class="teaser-gif">
-        </div>
-        <div class="column has-text-centered">
-          <img src="static/gifs/ezgif.com-animated-gif-maker_text.gif" alt="Energy Based Transformer Language Model Prediction as Thinking" class="teaser-gif">
-        </div>
+      <div class="under-construction-block">
+        <span class="icon is-large"><i class="fas fa-tools fa-2x"></i></span>
+        <h2 class="title is-4" style="margin-top: 1rem;">Figures &amp; Visualizations</h2>
+        <p class="subtitle is-6">Under construction — visualizations of the Explorative Modeling process will be added here soon.</p>
       </div>
-      <h2 class="subtitle has-text-centered">
-        Thinking Processes visualized as energy minimization for autoregressive EBTs. Initially, a random prediction is fed into the models, causing the EBT to predict high energy. Then, models iteratively refine these predictions by minimizing the energy through gradient descent (passing the gradient from the energy to predictions). This process is performed until convergence of the energy, enabling the model to know "when to stop thinking."
-      </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -220,7 +168,7 @@
         <div class="content has-text-justified">
           <zero-md no-shadow data-dedent="12" style="display:block;width:100%;">
             <script type="text/markdown">
-Inference-time computation techniques, analogous to human System 2 Thinking, have recently become popular for improving model performances. However, most existing approaches suffer from several limitations: they are modality-specific (e.g., working only in text), problem-specific (e.g., verifiable domains like math and coding), or require additional supervision/training on top of unsupervised pretraining (e.g., verifiers or verifiable rewards). In this paper, we ask the question _"Is it possible to **generalize** these System 2 Thinking approaches, and **develop models that learn to think solely from unsupervised learning?**"_ Interestingly, we find the answer is **yes**, by learning to explicitly **verify** the compatibility (unnormalized probability) between inputs and candidate-predictions, and then re-framing prediction problems as optimization with respect to this verifier. Specifically, we train Energy-Based Transformers (EBTs)---a new class of Energy-Based Models (EBMs)---to assign an **energy** (unnormalized probability) value to every input and candidate-prediction pair, enabling predictions through gradient descent-based energy minimization until convergence. This formulation enables System 2 Thinking to emerge from unsupervised learning, making it modality and problem agnostic. Across both discrete (text) and continuous (visual) modalities, we find EBTs scale faster than the dominant Transformer++ approach during training, achieving an up to 35% higher scaling rate with respect to data, batch size, parameters, FLOPs, and depth. During inference, EBTs improve performance with System 2 Thinking (i.e., extra computation) by 29% more than the Transformer++ on language tasks, and EBTs outperform Diffusion Transformers on image denoising while using 99% fewer forward passes. Further, we find that System 2 Thinking with EBTs yields larger performance improvements on data that is farther out-of-distribution, and that EBTs achieve better results than existing models on most downstream tasks given the same or worse pretraining performance, enabling EBTs to out-generalize existing paradigms. Consequently, EBTs are a flexible and exciting new paradigm for scaling both the **learning** and **thinking** capabilities of models.
+The deep learning revolution, kicked off by AlexNet, taught us that end-to-end training beats decomposing a problem into hand-designed stages. Generative modeling, however, has remained the holdout—despite the remarkable performance of modern generative models, we still have not achieved **end-to-end reconstructive generative modeling**, meaning generative models that are trained by reconstruction and that sample in the same way at both training and inference. So why can't we train generative models end-to-end? At its core, generative modeling is about handling **highly multimodal distributions**, and every existing scalable reconstructive approach handles this multimodality the same way: by **factoring the generation procedure into smaller steps** during training, which is exactly what rules out end-to-end generation. In this work, we introduce a new paradigm for handling multimodality, **Explorative Modeling (XM)**, which lets a model explore many candidate generations and reinforces only the best-matching one, so its predictions capture individual modes instead of blurring them. We find XMs useful in two distinct settings. First, because XM is a new way to handle multimodality, scaling exploration opens a **new scaling axis** for existing generative models. For example, scaling exploration yields **53% better FLOP efficiency, 2.5× better data efficiency, and 47% better parameter efficiency**. Most importantly, like parameters and data, these gains **grow monotonically with scale**: scaling data raises the performance gain from using XMs from 7% to 36%, scaling model size raises it from 13% to 23%, and increasing exploration itself monotonically improves performance—suggesting we likely underestimate gains here due to limited scale. Second, as a standalone reconstructive generative model, XM is the **first to succeed with end-to-end training**, achieving **20–250× inference speedups** while matching the performance of diffusion on certain tasks. Our results demonstrate that XMs are both a promising **new scaling axis** for existing generative models as well as a strong **end-to-end generative modeling paradigm**.
             </script>
           </zero-md>
         </div>
@@ -231,122 +179,16 @@ Inference-time computation techniques, analogous to human System 2 Thinking, hav
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-
-        <img src="static/images/model_comparison.png" alt="Comparison of EBTs to existing approaches"/>
-        <h2 class="subtitle has-text-centered">
-          Comparison of EBTs to existing approaches
-        </h2>
-      </div>
-      <div class="item">
-
-        <img src="static/images/proposed_model.png" alt="EBTs for Autoregressive Modeling"/>
-        <h2 class="subtitle has-text-centered">
-          EBTs for Autoregressive Modeling
-        </h2>
-      </div>
-      <div class="item">
-
-        <img src="static/images/energy_landscape_minimization.png" alt="EBT Thinking Process Visualization for Language Modeling"/>
-        <h2 class="subtitle has-text-centered">
-         EBT Thinking Process Visualization for Language Modeling
-       </h2>
-     </div>
-     <div class="item">
-
-      <img src="static/images/thinking_performance.png" alt="Thinking Scalability of EBTs"/>
-      <h2 class="subtitle has-text-centered">
-        Thinking Scalability of EBTs
-      </h2>
-    </div>
-    <div class="item">
-
-      <img src="static/images/scaling_thinking_nlp_ar_ood.svg" alt="Thinking with EBTs Helps More on More OOD Data"/>
-      <h2 class="subtitle has-text-centered">
-        Thinking with EBTs Helps More on More OOD Data
-      </h2>
-    </div>
-    <div class="item">
-
-      <img src="static/images/scaling_nlp_1.png" alt="EBTs Outscale Transformer++ in NLP"/>
-      <h2 class="subtitle has-text-centered">
-        EBTs Outscale Transformer++ in NLP
-      </h2>
-    </div>
-    <div class="item">
-
-      <img src="static/images/scaling_video_1.png" alt="EBTs Outscale Transformer++ in Video"/>
-      <h2 class="subtitle has-text-centered">
-        EBTs Outscale Transformer++ in Video
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section> -->
-<!-- End image carousel -->
-
-
-
-
-
-
-<!-- Youtube video -->
+<!-- More information -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">For more information please reference the <a href="https://alexiglad.github.io/blog/2025/ebt/" target="_blank">blog post</a>, <a href="https://github.com/alexiglad/EBT" target="_blank">code</a>, or <a href="static/pdfs/paper.pdf" target="_blank">paper</a>!</h2>
+        <h2 class="title is-4">The paper, code, and additional resources are <span style="color: #0066cc;">under construction</span> and will be released soon. Check back for updates!</h2>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-
-      <h2 class="title is-3">Paper Presentation Video</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/TODO" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End youtube video -->
-
-
-
-
-
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
@@ -356,14 +198,11 @@ Inference-time computation techniques, analogous to human System 2 Thinking, hav
       BibTeX
       <button id="copyBibtex" class="button is-small is-dark is-pulled-right">Copy</button>
     </h2>
-    <pre><code id="bibtexCitation">@misc{gladstone2025energybasedtransformersscalablelearners,
-  title={Energy-Based Transformers are Scalable Learners and Thinkers},
-  author={Alexi Gladstone and Ganesh Nanduru and Md Mofijul Islam and Peixuan Han and Hyeonjeong Ha and Aman Chadha and Yilun Du and Heng Ji and Jundong Li and Tariq Iqbal},
-  year={2025},
-  eprint={2507.02092},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG},
-  url={https://arxiv.org/abs/2507.02092}
+    <pre><code id="bibtexCitation">@misc{gladstone2026explorativemodeling,
+  title={Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling},
+  author={Alexi Gladstone and Heng Ji and Yilun Du},
+  year={2026},
+  note={Preprint. Under review.}
 }</code></pre>
   </div>
 </section>
@@ -389,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
@@ -399,12 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
 
   </body>
   </html>

@@ -181,3 +181,49 @@ body {
   background: linear-gradient(90deg, #ffb74d, #ff8f00);
 }
 
+
+/* Under-construction (coming soon) buttons */
+.under-construction {
+  cursor: not-allowed;
+  opacity: 0.55;
+  pointer-events: auto;
+}
+
+.under-construction:hover {
+  opacity: 0.7;
+}
+
+.soon-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 0.65em;
+  line-height: 1;
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  color: #2b2b2b;
+  background: linear-gradient(90deg, #ffe082, #ffca28);
+}
+
+/* Under-construction placeholder block */
+.under-construction-block {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 2px dashed #c7c7c7;
+  border-radius: 14px;
+  color: #6b6b6b;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.015),
+    rgba(0, 0, 0, 0.015) 12px,
+    rgba(0, 0, 0, 0.04) 12px,
+    rgba(0, 0, 0, 0.04) 24px
+  );
+}
+
+.under-construction-block .icon {
+  color: #ff8f00;
+}
+
