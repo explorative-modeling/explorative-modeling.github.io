@@ -7,13 +7,13 @@
   <meta property="og:title" content="Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation"/>
   <meta property="og:description" content="Exploration is a third pretraining axis for generative models, beyond parameters and data: it scales what a model can generate. It improves FLOP efficiency by 4.1×, sample efficiency by 6.2×, reaches a near-SOTA 1.43 FID on ImageNet without guidance, and enables end-to-end generation. #AI #GenerativeModeling #Diffusion"/>
   <meta property="og:url" content="https://explorative-modeling.github.io/"/>
-  <meta property="og:image" content="static/images/banner_xm.png" />
-  <meta property="og:image:width" content="1600"/>
-  <meta property="og:image:height" content="900"/>
+  <meta property="og:image" content="https://explorative-modeling.github.io/static/images/banner_xm.png" />
+  <meta property="og:image:width" content="3200"/>
+  <meta property="og:image:height" content="1600"/>
 
   <meta name="twitter:title" content="Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation">
   <meta name="twitter:description" content="Exploration is a third pretraining axis beyond parameters and data: it scales what a model can generate. 4.1× FLOP efficiency, 6.2× sample efficiency, near-SOTA 1.43 FID without guidance, and end-to-end generation.">
-  <meta name="twitter:image" content="static/images/banner_xm.png">
+  <meta name="twitter:image" content="https://explorative-modeling.github.io/static/images/banner_xm.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="keywords" content="deep learning, ai, generative modeling, explorative modeling, exploration, multimodality, generative expressivity, mode forcing, diffusion models, flow matching, jumpy generative models, end-to-end generative modeling, pretraining axis, scaling law, reconstructive generative models, world models, behavior cloning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,13 +85,12 @@
                     <span>Blog</span>
                   </a>
                 </span>
-                <!-- HF Paper (under construction) -->
+                <!-- HF Paper link -->
                 <span class="link-block">
-                  <span class="button is-normal is-rounded is-dark under-construction" title="Under construction, coming soon">
+                  <a href="https://huggingface.co/papers/2607.27372" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="height:1em;"></span>
                     <span>HF Paper</span>
-                    <span class="soon-badge">SOON</span>
-                  </span>
+                  </a>
                 </span>
                 <!-- Tweet (under construction) -->
                 <span class="link-block">
@@ -100,6 +99,13 @@
                     <span>Tweet</span>
                     <span class="soon-badge">SOON</span>
                   </span>
+                </span>
+                <!-- alphaXiv link -->
+                <span class="link-block">
+                  <a href="https://www.alphaxiv.org/abs/2607.27372" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><img src="static/images/alphaxiv_logo.png" alt="alphaXiv" style="height:1em;"></span>
+                    <span>alphaXiv</span>
+                  </a>
                 </span>
               </div>
             </div>
@@ -119,7 +125,7 @@
           <h2 class="title is-3">TL;DR</h2>
           <div class="content has-text-justified">
             <p>
-We introduce <strong>Explorative Modeling</strong>, a new paradigm for generative modeling that acts as a <strong>third pretraining axis</strong> when added to existing generative models, and also enables <strong>end-to-end generation</strong>. Increasing exploration monotonically improves existing models across images, video, and language, and the gains grow with scale (7%→36% with data, 13%→23% with parameters). Concretely, Explorative Models (XMs) reach <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, and <strong>47%</strong> better parameter efficiency. Exploration also enables <em>scaling generalization</em>, and even <em>scaling how end-to-end existing models are</em>. As end-to-end generative models, XMs match diffusion on control tasks with up to <strong>256×</strong> less inference compute.
+We introduce <strong>Explorative Modeling</strong>, a new paradigm for generative modeling that acts as a <strong>third pretraining axis</strong> when added to existing generative models, and also enables <strong>end-to-end generation</strong>. Increasing exploration monotonically improves existing models across images, video, and language, and the gains grow with scale (7%→36% with data, 13%→23% with parameters). Concretely, Explorative Models (XMs) reach <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, and <strong>47%</strong> better parameter efficiency. Exploration also enables <em>scaling generalization</em>, and <em>scaling how end-to-end existing models are</em>. As end-to-end generative models, XMs match diffusion on control tasks with up to <strong>256×</strong> less inference compute.
             </p>
           </div>
         </div>
@@ -174,7 +180,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
           <h2 class="title is-3">The Idea: Factor Training, Not Generation</h2>
           <div class="content has-text-justified">
             <p>
-              A generative model has only two things it can break into pieces: <strong>how it generates</strong>, and <strong>how it trains</strong>. Today's models break up <em>generation</em> into hundreds of small steps. That works, but it's also what stops them from being <strong>end-to-end</strong>. Explorative Modeling breaks up the <em>training loop</em> instead, through <strong>exploration</strong>. This opens a new axis that scaling parameters and data can't reach.
+              A generative model can break two things into pieces: how it generates, or how it trains. Today's models break up generation into hundreds of small steps, which works but prevents end-to-end generation. Explorative Models (XMs) break up training instead, through exploration. Because of this, for existing generative models, XMs unlock a third pretraining axis beyond parameters and data. XMs also enable end-to-end generative modeling, where sampling during training and inference are identical.
             </p>
           </div>
         </div>
@@ -182,7 +188,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <img src="static/images/gen_modeling_axes.png" alt="Two axes of generative modeling: factoring generation vs factoring training" class="concept-img">
-          <p class="fig-caption"><strong>Two axes of generative modeling.</strong> A model can factor <em>generation</em> (x-axis) or <em>training</em> (y-axis). Regressing directly blurs modes (bottom-left). Today's models factor generation but aren't end-to-end (bottom-right). Adding exploration to them is a new pretraining axis (top-right), and factoring training on its own gives end-to-end XM (top-left).</p>
+          <p class="fig-caption">Two axes of generative modeling.</p>
         </div>
       </div>
     </div>
@@ -193,8 +199,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
   <section class="hero teaser is-light">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h3 class="title is-4 has-text-centered" style="margin-bottom: 0.75rem;">More exploration → less blur</h3>
-        <p class="subtitle is-6 has-text-centered has-text-grey" style="margin-top: 0; margin-bottom: 1.25rem;">Increasing exploration (<em>K</em>) lets a model capture more modes instead of averaging them.</p>
+        <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.1rem;">More exploration → less blur</h3>
 
         <div class="teaser-grid">
           <div class="teaser-cell"><img src="static/images/results/piles_3_ground_truth.png" alt="Toy target: three modes"><span>Ground Truth</span></div>
@@ -218,9 +223,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
           <div class="teaser-cell"><img src="static/images/results/xmdlm_k8.png" alt="XM-8 language: coherent text"><span>XM-8</span></div>
         </div>
 
-        <p class="fig-caption" style="margin-top: 1.1rem;">
-          <strong>The same story in three domains.</strong> With no exploration (XM-1), a model just predicts the <em>average</em> of every valid answer: a single dot, a blurry image, and the word "the" over and over. As exploration grows, it starts capturing the real modes, giving all three clusters, a sharp image, and coherent text ("The cat licked the soft paw").
-        </p>
+        <p class="fig-caption" style="margin-top: 1.1rem;">Increasing exploration (<em>K</em>) lets a model capture more modes instead of averaging them.</p>
       </div>
     </div>
   </section>
@@ -231,18 +234,15 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <p class="part-eyebrow">Part 1</p>
           <h2 class="title is-2">Exploration as a Third Pretraining Axis</h2>
-          <p class="subtitle is-5 has-text-grey">Add exploration to today's generative models and they get better and more efficient, and it helps even more as they get bigger.</p>
         </div>
       </div>
 
       <!-- Efficiency at scale -->
       <div class="result-block">
-        <h3 class="title is-4">It reaches the same quality with far less compute and data</h3>
         <div class="content has-text-justified">
           <p>
-            We add exploration to a strong image-generation recipe. To reach the baseline's best quality, it needs <strong>6.2× less data</strong> and <strong>4.1× fewer FLOPs</strong>, and these efficiency gains more than double when we triple the compute. (Quality is FDr⁶; lower is better.)
+            We add exploration to RAE, a near-SOTA image-generation recipe. Without any hyperparameter tuning, simply adding XM gives <strong>6.2×</strong> better data efficiency and <strong>4.1×</strong> better FLOP efficiency. The compute-optimal amount of exploration also keeps growing the longer you train.
           </p>
         </div>
         <div class="columns">
@@ -253,15 +253,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_rae_fdr_scaling_ema_flops_longer_comparisons_3_modes.svg" alt="Exploration reaches baseline quality with 4.1x fewer FLOPs" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>Exploration improves data and FLOP efficiency at scale.</strong> Adding exploration to the RAE image-generation recipe reaches the no-exploration baseline's best quality with 6.2× less data (left) and 4.1× fewer FLOPs (right).</p>
+        <p class="fig-caption">Adding exploration to RAE reaches the no-exploration baseline's best quality with 6.2× less data (left) and 4.1× fewer FLOPs (right); quality is FDr⁶ (lower is better).</p>
       </div>
 
       <!-- Parameter efficiency -->
       <div class="result-block">
-        <h3 class="title is-4">…and even fewer parameters</h3>
         <div class="content has-text-justified">
           <p>
-            The same holds for model size: a Large model exploring 5 modes outscales an XLarge model with <strong>47% more parameters</strong> and no exploration. And the <em>compute-optimal</em> amount of exploration grows as you train, just like the optimal number of parameters.
+            The same holds for model size: a Large model that explores 5 modes outscales an XLarge model with <strong>47% more parameters</strong> and no exploration.
           </p>
         </div>
         <div class="columns is-centered">
@@ -269,15 +268,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_param_eff_l_xl.svg" alt="Large model with 5 modes outscales XLarge with 47% more params" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>Exploration improves parameter efficiency.</strong> A Large model exploring 5 modes scales better than an XLarge model with 47% more parameters and no exploration.</p>
+        <p class="fig-caption">A Large model exploring 5 modes scales better than an XLarge model with 47% more parameters and no exploration.</p>
       </div>
 
       <!-- Monotonic across modalities -->
       <div class="result-block">
-        <h3 class="title is-4">It helps across images, video, and text</h3>
         <div class="content has-text-justified">
           <p>
-            Holding the model fixed and only turning up exploration, quality <strong>keeps improving</strong> across images (FID), video (FVD), and language (a masked-diffusion LM), with some models gaining over 20%.
+            With the model fixed, increasing exploration alone <strong>monotonically improves performance</strong> across images (FID), video (FVD), and language (a masked-diffusion LM). Some models gain over 20%, and the gains have not stopped at the highest exploration levels we test.
           </p>
         </div>
         <div class="columns">
@@ -288,7 +286,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_fvd_overlap.svg" alt="FVD improves monotonically with exploration" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>More exploration monotonically improves image and video quality.</strong> As modes explored increases, both FID (left) and FVD (right) improve for Explorative Diffusion (XDiffusion) and Explorative Jumpy (XJumpy). The more end-to-end model (XJumpy) benefits more.</p>
+        <p class="fig-caption">As modes explored increases, both FID (left) and FVD (right) improve for Explorative Diffusion (XDiffusion) and Explorative Jumpy (XJumpy); the more end-to-end model (XJumpy) benefits more.</p>
         <div class="columns">
           <div class="column">
             <img src="static/images/results/xmdlm_8steps_v2.svg" alt="Language: XMDLM improves the perplexity-entropy frontier at 8 steps" class="result-img">
@@ -297,15 +295,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xmdlm_256steps_v2.svg" alt="Language: XMDLM improves the perplexity-entropy frontier at 256 steps" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>It works for text, too.</strong> Adding exploration to a masked-diffusion language model (XMDLM, 8 modes) lowers perplexity at every diversity level, with both fast 8-step (left) and slower 256-step (right) generation.</p>
+        <p class="fig-caption">It works for text too: adding exploration to a masked-diffusion language model (XMDLM, 8 modes) lowers perplexity at every diversity level, for both fast 8-step (left) and slower 256-step (right) generation.</p>
       </div>
 
       <!-- Gains grow with scale -->
       <div class="result-block">
-        <h3 class="title is-4">Best of all, the gains grow with scale</h3>
         <div class="content has-text-justified">
           <p>
-            A model is limited by three things: parameters (what it can <em>represent</em>), data (what it can <em>learn</em>), and <em>generative expressivity</em> (how many modes it can <em>generate</em>). Only the first two scale; expressivity is fixed by the training objective, so it becomes the bottleneck as models grow. Exploration raises it directly, so its payoff <strong>grows with scale</strong>: <strong>13% → 23%</strong> with model size and <strong>7% → 36%</strong> with data. Since frontier runs use far more compute than ours, these numbers are likely a floor.
+            A generative model's performance is limited by three capacities: parameters restrict what it can <em>represent</em>, data restricts what it can <em>learn</em>, and generative expressivity restricts what it can <em>generate</em>. Scaling parameters and data relieves the first two, but generative expressivity is set by the training objective itself, so as models and data grow it increasingly becomes the bottleneck. Exploration raises generative expressivity directly, and its gains <strong>grow with scale</strong> — rising from 13% to 23% as models scale and from 7% to 36% as data scales. This is what makes exploration a genuine <strong>third pretraining axis</strong>: just like parameters and data, the compute-optimal amount of exploration grows with scale, so models trained without it fall increasingly short.
           </p>
         </div>
         <div class="columns">
@@ -316,15 +313,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_steps_pct_improvement_overlap.svg" alt="Gain from exploration rises 7% to 36% with data" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>Gains from exploration increase with scale.</strong> The improvement from exploring 5 modes grows with model size (left, 13% → 23%) and training data (right, 7% → 36%), which is the signature of a real scaling axis.</p>
+        <p class="fig-caption">The improvement from exploring 5 modes grows with model size (left, 13%→23%) and data (right, 7%→36%), the signature of a real scaling axis.</p>
       </div>
 
       <!-- Generalization -->
       <div class="result-block">
-        <h3 class="title is-4">Exploration also improves generalization</h3>
         <div class="content has-text-justified">
           <p>
-            Because exploration commits to the real modes instead of a blurry average that matches nothing, there's less of an artifact to memorize, so it generalizes better. On a small video dataset, more exploration <strong>overfits less</strong> and reaches a better best FVD (<strong>30.0</strong> vs <strong>37.5</strong>), buying generalization with training compute.
+            Because exploration commits to real modes instead of a blurry average, there's less of an artifact to memorize, so models generalize better. On a small video dataset, more exploration <strong>overfits less</strong> and reaches a better best FVD (30.0 vs 37.5).
           </p>
         </div>
         <div class="columns is-centered">
@@ -332,15 +328,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_fvd_data_eff_jumpy_all.svg" alt="More exploration overfits less, reaching a better minimum FVD" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>Exploration reduces overfitting.</strong> Tracking held-out video quality over training, more exploration memorizes the training set less and reaches a better best FVD (30.0 at XM-12, versus 37.5 with no exploration).</p>
+        <p class="fig-caption">Tracking held-out video quality over training: more exploration memorizes the training set less and reaches a better best FVD (30.0 at XM-12 vs 37.5 with none).</p>
       </div>
 
       <!-- SOTA recipe -->
       <div class="result-block">
-        <h3 class="title is-4">It improves even a state-of-the-art recipe</h3>
         <div class="content has-text-justified">
           <p>
-            Exploration even helps the strongest recipes. Added to RAE (state-of-the-art for ImageNet 256×256 three months before this work), it reaches a near-best <strong>1.43 FID with no guidance</strong> and converges <strong>~300× faster</strong> than the standard SiT recipe.
+            Exploration also lifts the strongest recipes. Added to RAE (state-of-the-art for ImageNet 256×256 shortly before this work), it reaches a near-best <strong>1.43 FID</strong> without guidance and converges <strong>~300× faster</strong> than the standard SiT recipe.
           </p>
         </div>
         <div class="table-container">
@@ -380,10 +375,9 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
 
       <!-- Which models benefit most -->
       <div class="result-block">
-        <h3 class="title is-4">And it scales how end-to-end your generative model is</h3>
         <div class="content has-text-justified">
           <p>
-            Exploration helped every model, but the <strong>most end-to-end</strong> ones most. The more a model explores, the <strong>fewer generation steps it needs</strong>, because exploration supplies the same expressivity. So factoring training and factoring generation are interchangeable, letting models become more end-to-end as they explore.
+            Exploration helped every model family we tested, but models that are <strong>more end-to-end benefit most</strong>. This is because factoring training can substitute for factoring generation: exploration supplies the generative expressivity that extra generation steps would otherwise provide, so as exploration increases, the best-performing models become increasingly end-to-end. In effect, exploration lets us <strong>scale how end-to-end</strong> existing generative models are — turning it from a fixed design choice into a scalable one.
           </p>
         </div>
         <div class="columns is-centered">
@@ -391,14 +385,14 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
             <img src="static/images/results/xm_end_to_end_scaling.svg" alt="Optimal number of jumps decreases as exploration increases" class="result-img">
           </div>
         </div>
-        <p class="fig-caption"><strong>More end-to-end models benefit most.</strong> Comparing Jumpy models with different numbers of steps (jumps): with little exploration, more steps win, and as exploration increases, fewer steps (a more end-to-end model) become best.</p>
+        <p class="fig-caption">Explorative Jumpy models with different numbers of generation steps: when exploration is low, models with more steps perform best, but as exploration increases the optimal number of steps shrinks — models that are more end-to-end (fewer steps) scale better with exploration.</p>
       </div>
 
       <!-- Takeaway 1 -->
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <div class="takeaway-box">
-            <strong>Takeaway.</strong> Exploration is a genuinely new, third axis for scaling generative models, alongside parameters and data. It improves image, video, and language models alike, giving <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, <strong>47%</strong> better parameter efficiency, a near-SOTA <strong>1.43</strong> unguided FID on ImageNet, and <strong>~300×</strong> faster convergence than the standard SiT recipe. Most importantly, these gains <em>grow with scale</em> rather than saturate, so the numbers here are a lower bound for what larger models would see. Exploration also unlocks <em>scaling generalization</em> and <em>scaling how end-to-end</em> models can be.
+            <strong>Takeaway.</strong> Exploration acts as a third pretraining axis for scaling existing generative models, alongside parameters and data. It improves image, video, and language models alike, giving <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, <strong>47%</strong> better parameter efficiency, a near-SOTA <strong>1.43</strong> unguided FID on ImageNet, and <strong>~300×</strong> faster convergence than the standard SiT recipe. Most importantly, these gains <em>grow with scale</em> rather than saturate, so the numbers here are likely a floor for what larger models would see. Exploration also unlocks <em>scaling generalization</em> and <em>scaling how end-to-end</em> models can be.
           </div>
         </div>
       </div>
@@ -411,7 +405,6 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <p class="part-eyebrow">Part 2</p>
           <h2 class="title is-2">End-to-End Generation</h2>
           <p class="subtitle is-5 has-text-grey">An end-to-end Explorative Model generates the same way it trains, matching diffusion with a fraction of the steps.</p>
         </div>
@@ -421,7 +414,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
         <div class="column is-four-fifths">
           <div class="content has-text-justified">
             <p>
-              Taken to its limit, exploration handles all the multimodality during training, so the model generates <strong>end-to-end</strong> in one step (or a few) instead of hundreds. Where diffusion pays for many modes with inference steps, end-to-end XMs pay during training and generate in a single pass. We test this on robotics and world modeling, with <strong>barely any XM-specific tuning</strong>.
+              Taken to its limit, exploration handles all the multimodality during training, so the model generates end-to-end in one step (or a few) instead of hundreds. Where diffusion pays for many modes with inference steps, end-to-end XMs pay during training and generate in a single pass. We test this on robotics and world modeling, with barely any XM-specific tuning.
             </p>
           </div>
         </div>
@@ -431,7 +424,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
       <div class="columns is-centered">
         <div class="column is-four-fifths">
           <h3 class="title is-4 has-text-centered">Behavior Cloning</h3>
-          <p class="has-text-centered content">On robot manipulation tasks, our Explorative Policy <strong>matches or beats</strong> Diffusion Policy on every task while using a <strong>single</strong> model step per action instead of 100.</p>
+          <p class="has-text-centered content">On robot manipulation tasks, our Explorative Policy matches or beats Diffusion Policy on every task while using a single network forward pass at inference instead of 100.</p>
           <div class="table-container">
             <table class="table is-fullwidth is-hoverable result-table has-text-centered">
               <thead>
@@ -452,7 +445,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
               </tbody>
             </table>
           </div>
-          <p class="fig-caption"><strong>Explorative Policy rivals Diffusion Policy at 100× less inference compute.</strong> Success rates on Robomimic (higher is better). "Steps" is model evaluations per action: our model uses 1, Diffusion Policy uses 100.</p>
+          <p class="fig-caption">Success rates on Robomimic (higher is better). "Steps" is network forward passes (NFEs) at inference: our model uses 1, Diffusion Policy uses 100.</p>
         </div>
       </div>
 
@@ -460,7 +453,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
       <div class="columns is-centered" style="margin-top: 1.5rem;">
         <div class="column is-four-fifths">
           <h3 class="title is-4 has-text-centered">Goal-Conditioned World Modeling</h3>
-          <p class="has-text-centered content">On maze planning tasks, our Explorative World Model gets a <strong>better average score</strong> than Diffuser while running <strong>16–256× fewer</strong> steps (≈80× less on average).</p>
+          <p class="has-text-centered content">On maze planning tasks, our Explorative World Model gets a better average score than Diffuser while running 16–256× fewer steps (≈80× less on average).</p>
           <div class="table-container">
             <table class="table is-fullwidth is-hoverable result-table has-text-centered">
               <thead>
@@ -493,7 +486,7 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
               </tbody>
             </table>
           </div>
-          <p class="fig-caption"><strong>Explorative World Model matches Diffuser at 16–256× less inference compute.</strong> Planning on Maze2D (higher score is better; fewer steps is cheaper). Our model scores better on average while using far fewer steps (NFEs).</p>
+          <p class="fig-caption">Planning on Maze2D (higher score is better; fewer steps is cheaper). Our model scores better on average while using far fewer steps (NFEs).</p>
         </div>
       </div>
 
@@ -514,8 +507,8 @@ The deep learning revolution, kicked off by AlexNet, taught us that end-to-end t
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Getting Started with XM</h2>
-          <p class="subtitle is-6 has-text-grey" style="margin-top: 0;">We provide pseudocode below for the simplest way to add XM to your generative model. It's just best-of-<em>K</em>: wrap your existing loss in a short for loop and keep the closest of <em>K</em> candidates.</p>
+          <h2 class="title is-3">Getting Started with XMs</h2>
+          <p class="subtitle is-6 has-text-grey" style="margin-top: 0;">We provide pseudocode below for the simplest way to add XM to your generative model (Forward XM). It's just best-of-<em>K</em>: wrap your existing loss in a short for loop and keep the closest of <em>K</em> candidates.</p>
         </div>
       </div>
       <div class="columns is-centered">
@@ -548,7 +541,7 @@ for _ in range(K):                          <span class="cmt"># explore K candid
 
 min(losses).backward()                      <span class="cmt"># train only the closest candidate</span></pre>
           <p class="fig-caption" style="margin-top: 0.85rem;">This is <strong>Forward XM</strong> (explore over the model's generations). The same recipe works in discrete spaces, e.g. with masked-diffusion language models, where <code>sample_latent()</code> is a learned latent embedding. See <a href="https://github.com/alexiglad/XM" target="_blank">github.com/alexiglad/XM</a> for the full code.</p>
-          <p class="cta-line">Exploration is easy to add to an existing model: just a few lines, with no new hyperparameters. If you'd like to try it on your own problem, we'd love to hear how it goes. Feel free to <a href="mailto:alexigladstone@gmail.com">reach out</a>!</p>
+          <p class="cta-line">If you'd like to try it on your own problem, we'd love to hear how it goes. Feel free to <a href="mailto:alexigladstone@gmail.com">reach out</a>!</p>
         </div>
       </div>
     </div>
@@ -560,7 +553,7 @@ min(losses).backward()                      <span class="cmt"># train only the c
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-4">Read the full <a href="static/pdfs/paper.pdf" target="_blank">paper</a> (also on <a href="https://arxiv.org/abs/2607.27372" target="_blank">arXiv</a>), browse the <a href="https://github.com/alexiglad/XM" target="_blank">code</a>, or read the <a href="https://alexiglad.github.io/blog/2026/explorative_modeling/" target="_blank">blog</a>. More is <span style="color: #0066cc;">coming soon</span>.</h2>
+          <h2 class="title is-4">Read the full <a href="static/pdfs/paper.pdf" target="_blank">paper</a> (also on <a href="https://arxiv.org/abs/2607.27372" target="_blank">arXiv</a>), browse the <a href="https://github.com/alexiglad/XM" target="_blank">code</a>, or read the <a href="https://alexiglad.github.io/blog/2026/explorative_modeling/" target="_blank">blog</a>.</h2>
         </div>
       </div>
     </div>
