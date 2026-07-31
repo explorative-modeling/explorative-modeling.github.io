@@ -227,3 +227,214 @@ body {
   color: #ff8f00;
 }
 
+
+/* ============ Explorative Modeling results styling ============ */
+
+/* Teaser intuition grid (blurring figure) */
+.teaser-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.2%;
+  margin-bottom: 0.9rem;
+  flex-wrap: nowrap;
+}
+
+.teaser-cell {
+  flex: 1 1 0;
+  max-width: 19%;
+  text-align: center;
+}
+
+.teaser-cell img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  background: #fff;
+  display: block;
+}
+
+.teaser-cell span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #555;
+  font-family: 'Google Sans', sans-serif;
+}
+
+/* Part eyebrow label */
+.part-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #0066cc;
+  margin-bottom: 0.35rem;
+}
+
+/* Result blocks */
+.result-block {
+  margin-top: 2.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.result-block .title.is-4 {
+  margin-bottom: 0.6rem;
+}
+
+.result-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Large conceptual figures (2-axis diagram, Forward/Reverse XM) */
+.concept-img {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Usage pseudocode */
+.code-cols { display: flex; flex-direction: column; gap: 1.15rem; }
+.code-cols > div { width: 100%; min-width: 0; }
+.code-label {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  color: #1c51d6;
+  margin-bottom: 0.4rem;
+}
+.xm-code {
+  background: #f6f8fa;
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+  padding: 0.95rem 1.05rem;
+  font-family: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #26304a;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  tab-size: 2;
+}
+.xm-code .cmt { color: #9098ad; }
+
+/* Getting-started call to action */
+.cta-line {
+  max-width: 800px;
+  margin: 1.5rem auto 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #2b2f42;
+}
+.cta-line strong { color: #1c51d6; }
+.cta-line a { color: #0066cc; font-weight: 600; }
+.cta-line a:hover { text-decoration: underline; }
+
+/* Figure / table caption text */
+.fig-caption {
+  font-size: 0.92rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+  max-width: 880px;
+  margin: 0.6rem auto 0 auto;
+  text-align: center;
+}
+
+/* Takeaway callout (mirrors the paper's takeaway boxes) */
+.takeaway-box {
+  background: #eef1ff;
+  border: 1.5px solid #1c51d6;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.8rem;
+  color: #1a1a2e;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.takeaway-box strong {
+  color: #1c51d6;
+}
+
+/* Result tables — clean booktabs style */
+.result-table {
+  background: transparent;
+  border-collapse: collapse;
+  width: 100%;
+  border-top: 2px solid #2b2f42;
+  border-bottom: 2px solid #2b2f42;
+}
+
+.result-table th,
+.result-table td {
+  border: none !important;
+  padding: 0.5rem 0.7rem;
+  vertical-align: middle;
+}
+
+.result-table th {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  color: #2b2f42;
+  background: transparent !important;
+}
+
+/* rule under the (last) header row */
+.result-table thead tr:last-child th {
+  border-bottom: 2px solid #2b2f42 !important;
+}
+
+/* light rule under spanning group headers (cmidrule-like) */
+.result-table thead tr:first-child th[colspan] {
+  border-bottom: 1px solid #c9cede !important;
+}
+
+/* subtle row separators in the body */
+.result-table tbody tr:not(:last-child) {
+  border-bottom: 1px solid #edeff4;
+}
+
+.result-table tbody tr:hover { background: #f7f9fc; }
+
+.result-table .ours-row,
+.result-table .ours-row:hover { background: #eef4ff; }
+
+.ours-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #0066cc;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+  .teaser-cell span { font-size: 0.62rem; }
+}
+
+/* Overview video */
+.video-wrap {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.xm-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.14);
+  background: #fff;
+}
+

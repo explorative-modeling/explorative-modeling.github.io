@@ -3,40 +3,30 @@
 <head>
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Explorative Modeling (XM) is a new paradigm for handling multimodality in generative models. A model explores many candidate generations and reinforces only the best-matching one, so its predictions capture individual modes instead of blurring them. XM unlocks a new scaling axis for existing generative models and is the first reconstructive generative model to succeed with end-to-end training.">
-  <meta property="og:title" content="Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling"/>
-  <meta property="og:description" content="Explorative Modeling (XM) lets a model explore many candidate generations and reinforces only the best-matching one, capturing individual modes instead of blurring them. XM opens a new scaling axis for generative models and is the first reconstructive model to succeed with end-to-end training. #AI #DeepLearning #GenerativeModeling #Diffusion"/>
+  <meta name="description" content="Explorative Modeling is a new paradigm for handling multimodality in generative models. Instead of factoring the generation procedure into many steps, it factors the training loop, it explores K candidate matches between a model's generations and the data and trains on the best, so predictions commit to modes rather than blurring them. This makes exploration a third pretraining axis beyond parameters and data, and enables end-to-end reconstructive generative modeling.">
+  <meta property="og:title" content="Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation"/>
+  <meta property="og:description" content="Exploration is a third pretraining axis for generative models, beyond parameters and data: it scales what a model can generate. It improves FLOP efficiency by 4.1×, sample efficiency by 6.2×, reaches a near-SOTA 1.43 FID on ImageNet without guidance, and enables end-to-end generation. #AI #GenerativeModeling #Diffusion"/>
   <meta property="og:url" content="https://explorative-modeling.github.io/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <!-- TODO: banner.png is still the old EBT banner; replace with an Explorative Modeling social-preview image (1200x630). -->
-  <meta property="og:image" content="static/images/banner.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <meta property="og:image" content="static/images/banner_xm.png" />
+  <meta property="og:image:width" content="1600"/>
+  <meta property="og:image:height" content="900"/>
 
-
-  <meta name="twitter:title" content="Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling">
-  <meta name="twitter:description" content="Explorative Modeling (XM) lets a model explore many candidate generations and reinforces only the best-matching one, capturing individual modes instead of blurring them. A new scaling axis for generative models, and the first reconstructive model to succeed with end-to-end training.">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <!-- TODO: banner.png is still the old EBT banner; replace with an Explorative Modeling social-preview image (1200x630). -->
-  <meta name="twitter:image" content="static/images/banner.png">
+  <meta name="twitter:title" content="Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation">
+  <meta name="twitter:description" content="Exploration is a third pretraining axis beyond parameters and data: it scales what a model can generate. 4.1× FLOP efficiency, 6.2× sample efficiency, near-SOTA 1.43 FID without guidance, and end-to-end generation.">
+  <meta name="twitter:image" content="static/images/banner_xm.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="deep learning, ai, generative modeling, explorative modeling, exploration, multimodality, mode forcing, diffusion models, flow matching, jumpy generative models, end-to-end generative modeling, scaling, scaling law, reconstructive generative models">
+  <meta name="keywords" content="deep learning, ai, generative modeling, explorative modeling, exploration, multimodality, generative expressivity, mode forcing, diffusion models, flow matching, jumpy generative models, end-to-end generative modeling, pretraining axis, scaling law, reconstructive generative models, world models, behavior cloning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling</title>
+  <title>Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,189 +45,572 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title"><span style="color: #0066cc;">Explorative Modeling</span>: Unlocking A New Scaling Axis and End-to-End Generative Modeling</h1>
+            <h1 class="title is-1 publication-title"><span style="color: #0066cc;">Explorative Modeling</span>: Unlocking a Third Pretraining Axis and End-to-End Generation</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://alexiglad.github.io" target="_blank">Alexi Gladstone</a><sup>1</sup>,</span>
-                <span class="author-block"><a href="https://blender.cs.illinois.edu/hengji.html" target="_blank">Heng Ji</a><sup>1</sup>,</span>
-                <span class="author-block"><a href="https://yilundu.github.io/" target="_blank">Yilun Du</a><sup>2</sup></span>
-              </div>
+              <span class="author-block"><a href="https://alexiglad.github.io" target="_blank">Alexi Gladstone</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://blender.cs.illinois.edu/hengji.html" target="_blank">Heng Ji</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://yilundu.github.io/" target="_blank">Yilun Du</a><sup>2</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UIUC&nbsp;&nbsp;&nbsp;<sup>2</sup>Harvard</span>
+            </div>
 
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"><sup>1</sup>UIUC&nbsp;&nbsp;&nbsp;<sup>2</sup>Harvard</span>
-              </div>
-
-              <div class="column has-text-centered">
-                <div class="publication-links">
-                     <!-- Paper link (under construction) -->
-                  <span class="link-block">
-                    <span class="button is-normal is-rounded is-dark under-construction"
-                    title="Under construction — coming soon">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper PDF link -->
+                <span class="link-block">
+                  <a href="static/pdfs/paper.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
                     <span>Paper</span>
-                    <span class="soon-badge">SOON</span>
-                  </span>
+                  </a>
                 </span>
-
-
-                    <!-- arXiv link (under construction) -->
-                  <span class="link-block">
-                    <span class="button is-normal is-rounded is-dark under-construction"
-                    title="Under construction — coming soon">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
+                <!-- arXiv link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2607.27372" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
                     <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code link -->
+                <span class="link-block">
+                  <a href="https://github.com/alexiglad/XM" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Blog link -->
+                <span class="link-block">
+                  <a href="https://alexiglad.github.io/blog/2026/explorative_modeling/" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-newspaper"></i></span>
+                    <span>Blog</span>
+                  </a>
+                </span>
+                <!-- HF Paper (under construction) -->
+                <span class="link-block">
+                  <span class="button is-normal is-rounded is-dark under-construction" title="Under construction, coming soon">
+                    <span class="icon"><img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="Hugging Face" style="height:1em;"></span>
+                    <span>HF Paper</span>
                     <span class="soon-badge">SOON</span>
                   </span>
                 </span>
-
-              <!-- Code link (under construction) -->
-              <span class="link-block">
-                <span class="button is-normal is-rounded is-dark under-construction"
-                title="Under construction — coming soon">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
+                <!-- Tweet (under construction) -->
+                <span class="link-block">
+                  <span class="button is-normal is-rounded is-dark under-construction" title="Under construction, coming soon">
+                    <span class="icon"><i class="fab fa-twitter"></i></span>
+                    <span>Tweet</span>
+                    <span class="soon-badge">SOON</span>
+                  </span>
                 </span>
-                <span>Code</span>
-                <span class="soon-badge">SOON</span>
-              </span>
-            </span>
+              </div>
+            </div>
 
-            <!-- Tweet link (under construction) -->
-            <span class="link-block">
-              <span class="button is-normal is-rounded is-dark under-construction"
-              title="Under construction — coming soon">
-              <span class="icon">
-                <i class="fab fa-twitter"></i>
-              </span>
-              <span>Tweet</span>
-              <span class="soon-badge">SOON</span>
-            </span>
-          </span>
-
-
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
 
-<!-- TLDR -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">TL;DR</h2>
+  <!-- TLDR -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">TL;DR</h2>
+          <div class="content has-text-justified">
+            <p>
+We introduce <strong>Explorative Modeling</strong>, a new paradigm for generative modeling that acts as a <strong>third pretraining axis</strong> when added to existing generative models, and also enables <strong>end-to-end generation</strong>. Increasing exploration monotonically improves existing models across images, video, and language, and the gains grow with scale (7%→36% with data, 13%→23% with parameters). Concretely, Explorative Models (XMs) reach <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, and <strong>47%</strong> better parameter efficiency. Exploration also enables <em>scaling generalization</em>, and even <em>scaling how end-to-end existing models are</em>. As end-to-end generative models, XMs match diffusion on control tasks with up to <strong>256×</strong> less inference compute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Overview video -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview Video</h2>
+          <div class="video-wrap">
+            <video class="xm-video" controls muted loop playsinline preload="metadata"
+                   poster="static/videos/xm_explainer_poster.jpg">
+              <source src="static/videos/xm_explainer.mp4?v=3" type="video/mp4">
+              Your browser does not support the video tag. <a href="static/videos/xm_explainer.mp4?v=3">Download the video</a>.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <zero-md no-shadow data-dedent="12" style="display:block;width:100%;">
+              <script type="text/markdown">
+The deep learning revolution, kicked off by AlexNet, taught us that end-to-end training beats decomposing a problem into hand-designed stages. Generative modeling, however, has remained the exception — despite generative models being remarkably capable, they are still not trained end-to-end. This is because, at its core, **generative modeling is about handling multimodal distributions**, and existing scalable approaches handle this multimodality the same way, by **factoring the generation procedure**, which prevents end-to-end generation. In this work, we introduce **Explorative Modeling**, a new paradigm that instead factors the training loop, exploring **K** candidate matches between model generations and data, and training on the best, so predictions commit to modes rather than blurring them. We find Explorative Models (**XMs**) useful in two settings. First, increasing exploration adds a **third pretraining axis** *beyond parameters and data* for existing generative models — where scaling exploration monotonically improves performance across both continuous and discrete domains (images, video, and language). Notably, gains from exploration **increase with scale**, climbing from 7% to 36% as data scales and from 13% to 23% as models grow, with efficiency gains more than doubling at 3× the compute. Concretely, exploration improves FLOP efficiency by **4.1×**, sample efficiency by **6.2×**, parameter efficiency by **47%**, lifts the strongest of image-generation recipes to a near-state-of-the-art **1.43 FID** on ImageNet without guidance, enables *scaling how end-to-end existing models are*, and unlocks *scaling generalization*. Second, XMs enable end-to-end reconstructive generative modeling, matching diffusion on control tasks with **16–256× fewer** inference steps. Together, these results establish XMs as both a *new pretraining axis* for existing generative models and a standalone *end-to-end generative modeling paradigm*.
+              </script>
+            </zero-md>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- The idea: two axes -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">The Idea: Factor Training, Not Generation</h2>
+          <div class="content has-text-justified">
+            <p>
+              A generative model has only two things it can break into pieces: <strong>how it generates</strong>, and <strong>how it trains</strong>. Today's models break up <em>generation</em> into hundreds of small steps. That works, but it's also what stops them from being <strong>end-to-end</strong>. Explorative Modeling breaks up the <em>training loop</em> instead, through <strong>exploration</strong>. This opens a new axis that scaling parameters and data can't reach.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="static/images/gen_modeling_axes.png" alt="Two axes of generative modeling: factoring generation vs factoring training" class="concept-img">
+          <p class="fig-caption"><strong>Two axes of generative modeling.</strong> A model can factor <em>generation</em> (x-axis) or <em>training</em> (y-axis). Regressing directly blurs modes (bottom-left). Today's models factor generation but aren't end-to-end (bottom-right). Adding exploration to them is a new pretraining axis (top-right), and factoring training on its own gives end-to-end XM (top-left).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser: 3-row intuition -->
+  <section class="hero teaser is-light">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h3 class="title is-4 has-text-centered" style="margin-bottom: 0.75rem;">More exploration → less blur</h3>
+        <p class="subtitle is-6 has-text-centered has-text-grey" style="margin-top: 0; margin-bottom: 1.25rem;">Increasing exploration (<em>K</em>) lets a model capture more modes instead of averaging them.</p>
+
+        <div class="teaser-grid">
+          <div class="teaser-cell"><img src="static/images/results/piles_3_ground_truth.png" alt="Toy target: three modes"><span>Ground Truth</span></div>
+          <div class="teaser-cell"><img src="static/images/results/piles_3_xm_k1.png" alt="XM-1 toy: collapses to the mean"><span>XM-1</span></div>
+          <div class="teaser-cell"><img src="static/images/results/piles_3_xm_k2.png" alt="XM-2 toy"><span>XM-2</span></div>
+          <div class="teaser-cell"><img src="static/images/results/piles_3_xm_k5.png" alt="XM-5 toy"><span>XM-5</span></div>
+          <div class="teaser-cell"><img src="static/images/results/piles_3_xm_k50.png" alt="XM-50 toy: captures all three modes"><span>XM-50</span></div>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-cell"><img src="static/images/results/pred_images_ground_truth.png" alt="Image ground truth"><span>Ground Truth</span></div>
+          <div class="teaser-cell"><img src="static/images/results/pred_images_xm_k1.png" alt="XM-1 image: blurry mean"><span>XM-1</span></div>
+          <div class="teaser-cell"><img src="static/images/results/pred_images_xm_k5.png" alt="XM-5 image"><span>XM-5</span></div>
+          <div class="teaser-cell"><img src="static/images/results/pred_images_xm_k20.png" alt="XM-20 image"><span>XM-20</span></div>
+          <div class="teaser-cell"><img src="static/images/results/pred_images_xm_k50.png" alt="XM-50 image: sharp"><span>XM-50</span></div>
+        </div>
+        <div class="teaser-grid">
+          <div class="teaser-cell"><img src="static/images/results/xmdlm_ground_truth.png" alt="Language ground truth"><span>Ground Truth</span></div>
+          <div class="teaser-cell"><img src="static/images/results/xmdlm_k1.png" alt="XM-1 language: 'the the the'"><span>XM-1</span></div>
+          <div class="teaser-cell"><img src="static/images/results/xmdlm_k2.png" alt="XM-2 language"><span>XM-2</span></div>
+          <div class="teaser-cell"><img src="static/images/results/xmdlm_k4.png" alt="XM-4 language"><span>XM-4</span></div>
+          <div class="teaser-cell"><img src="static/images/results/xmdlm_k8.png" alt="XM-8 language: coherent text"><span>XM-8</span></div>
+        </div>
+
+        <p class="fig-caption" style="margin-top: 1.1rem;">
+          <strong>The same story in three domains.</strong> With no exploration (XM-1), a model just predicts the <em>average</em> of every valid answer: a single dot, a blurry image, and the word "the" over and over. As exploration grows, it starts capturing the real modes, giving all three clusters, a sharp image, and coherent text ("The cat licked the soft paw").
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== PART 1 ===================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <p class="part-eyebrow">Part 1</p>
+          <h2 class="title is-2">Exploration as a Third Pretraining Axis</h2>
+          <p class="subtitle is-5 has-text-grey">Add exploration to today's generative models and they get better and more efficient, and it helps even more as they get bigger.</p>
+        </div>
+      </div>
+
+      <!-- Efficiency at scale -->
+      <div class="result-block">
+        <h3 class="title is-4">It reaches the same quality with far less compute and data</h3>
         <div class="content has-text-justified">
           <p>
-            <strong>Explorative Modeling (XM)</strong> is a new paradigm for handling multimodality in generative models: instead of <strong>factoring the generation procedure into smaller steps</strong> during training (the trick every existing scalable approach relies on), a model <strong>explores many candidate generations and reinforces only the best-matching one</strong>, so its predictions capture individual modes instead of blurring them. This is useful in two distinct ways. First, exploration is a <strong>new scaling axis</strong> for existing generative models, yielding up to <strong>53% better FLOP efficiency, 2.5× better data efficiency, and 47% better parameter efficiency</strong>—and, like data and parameters, these gains <strong>grow monotonically with scale</strong>. Second, as a standalone model, XM is the <strong>first reconstructive generative model to succeed with end-to-end training</strong>, achieving <strong>20–250× inference speedups</strong> while matching diffusion on certain tasks.
+            We add exploration to a strong image-generation recipe. To reach the baseline's best quality, it needs <strong>6.2× less data</strong> and <strong>4.1× fewer FLOPs</strong>, and these efficiency gains more than double when we triple the compute. (Quality is FDr⁶; lower is better.)
           </p>
         </div>
+        <div class="columns">
+          <div class="column">
+            <img src="static/images/results/xm_rae_fdr_scaling_ema_longer_comparisons_3_modes.svg" alt="Exploration reaches baseline quality with 6.2x less data" class="result-img">
+          </div>
+          <div class="column">
+            <img src="static/images/results/xm_rae_fdr_scaling_ema_flops_longer_comparisons_3_modes.svg" alt="Exploration reaches baseline quality with 4.1x fewer FLOPs" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>Exploration improves data and FLOP efficiency at scale.</strong> Adding exploration to the RAE image-generation recipe reaches the no-exploration baseline's best quality with 6.2× less data (left) and 4.1× fewer FLOPs (right).</p>
       </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- Teaser / Overview (under construction) -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="under-construction-block">
-        <span class="icon is-large"><i class="fas fa-tools fa-2x"></i></span>
-        <h2 class="title is-4" style="margin-top: 1rem;">Figures &amp; Visualizations</h2>
-        <p class="subtitle is-6">Under construction — visualizations of the Explorative Modeling process will be added here soon.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End teaser -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+      <!-- Parameter efficiency -->
+      <div class="result-block">
+        <h3 class="title is-4">…and even fewer parameters</h3>
         <div class="content has-text-justified">
-          <zero-md no-shadow data-dedent="12" style="display:block;width:100%;">
-            <script type="text/markdown">
-The deep learning revolution, kicked off by AlexNet, taught us that end-to-end training beats decomposing a problem into hand-designed stages. Generative modeling, however, has remained the holdout—despite the remarkable performance of modern generative models, we still have not achieved **end-to-end reconstructive generative modeling**, meaning generative models that are trained by reconstruction and that sample in the same way at both training and inference. So why can't we train generative models end-to-end? At its core, generative modeling is about handling **highly multimodal distributions**, and every existing scalable reconstructive approach handles this multimodality the same way: by **factoring the generation procedure into smaller steps** during training, which is exactly what rules out end-to-end generation. In this work, we introduce a new paradigm for handling multimodality, **Explorative Modeling (XM)**, which lets a model explore many candidate generations and reinforces only the best-matching one, so its predictions capture individual modes instead of blurring them. We find XMs useful in two distinct settings. First, because XM is a new way to handle multimodality, scaling exploration opens a **new scaling axis** for existing generative models. For example, scaling exploration yields **53% better FLOP efficiency, 2.5× better data efficiency, and 47% better parameter efficiency**. Most importantly, like parameters and data, these gains **grow monotonically with scale**: scaling data raises the performance gain from using XMs from 7% to 36%, scaling model size raises it from 13% to 23%, and increasing exploration itself monotonically improves performance—suggesting we likely underestimate gains here due to limited scale. Second, as a standalone reconstructive generative model, XM is the **first to succeed with end-to-end training**, achieving **20–250× inference speedups** while matching the performance of diffusion on certain tasks. Our results demonstrate that XMs are both a promising **new scaling axis** for existing generative models as well as a strong **end-to-end generative modeling paradigm**.
-            </script>
-          </zero-md>
+          <p>
+            The same holds for model size: a Large model exploring 5 modes outscales an XLarge model with <strong>47% more parameters</strong> and no exploration. And the <em>compute-optimal</em> amount of exploration grows as you train, just like the optimal number of parameters.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-fifths">
+            <img src="static/images/results/xm_param_eff_l_xl.svg" alt="Large model with 5 modes outscales XLarge with 47% more params" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>Exploration improves parameter efficiency.</strong> A Large model exploring 5 modes scales better than an XLarge model with 47% more parameters and no exploration.</p>
+      </div>
+
+      <!-- Monotonic across modalities -->
+      <div class="result-block">
+        <h3 class="title is-4">It helps across images, video, and text</h3>
+        <div class="content has-text-justified">
+          <p>
+            Holding the model fixed and only turning up exploration, quality <strong>keeps improving</strong> across images (FID), video (FVD), and language (a masked-diffusion LM), with some models gaining over 20%.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <img src="static/images/results/xm_fid_overlap.svg" alt="FID improves monotonically with exploration" class="result-img">
+          </div>
+          <div class="column">
+            <img src="static/images/results/xm_fvd_overlap.svg" alt="FVD improves monotonically with exploration" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>More exploration monotonically improves image and video quality.</strong> As modes explored increases, both FID (left) and FVD (right) improve for Explorative Diffusion (XDiffusion) and Explorative Jumpy (XJumpy). The more end-to-end model (XJumpy) benefits more.</p>
+        <div class="columns">
+          <div class="column">
+            <img src="static/images/results/xmdlm_8steps_v2.svg" alt="Language: XMDLM improves the perplexity-entropy frontier at 8 steps" class="result-img">
+          </div>
+          <div class="column">
+            <img src="static/images/results/xmdlm_256steps_v2.svg" alt="Language: XMDLM improves the perplexity-entropy frontier at 256 steps" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>It works for text, too.</strong> Adding exploration to a masked-diffusion language model (XMDLM, 8 modes) lowers perplexity at every diversity level, with both fast 8-step (left) and slower 256-step (right) generation.</p>
+      </div>
+
+      <!-- Gains grow with scale -->
+      <div class="result-block">
+        <h3 class="title is-4">Best of all, the gains grow with scale</h3>
+        <div class="content has-text-justified">
+          <p>
+            A model is limited by three things: parameters (what it can <em>represent</em>), data (what it can <em>learn</em>), and <em>generative expressivity</em> (how many modes it can <em>generate</em>). Only the first two scale; expressivity is fixed by the training objective, so it becomes the bottleneck as models grow. Exploration raises it directly, so its payoff <strong>grows with scale</strong>: <strong>13% → 23%</strong> with model size and <strong>7% → 36%</strong> with data. Since frontier runs use far more compute than ours, these numbers are likely a floor.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <img src="static/images/results/xm_param_pct_improvement_jumpy.svg" alt="Gain from exploration rises 13% to 23% with model size" class="result-img">
+          </div>
+          <div class="column">
+            <img src="static/images/results/xm_steps_pct_improvement_overlap.svg" alt="Gain from exploration rises 7% to 36% with data" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>Gains from exploration increase with scale.</strong> The improvement from exploring 5 modes grows with model size (left, 13% → 23%) and training data (right, 7% → 36%), which is the signature of a real scaling axis.</p>
+      </div>
+
+      <!-- Generalization -->
+      <div class="result-block">
+        <h3 class="title is-4">Exploration also improves generalization</h3>
+        <div class="content has-text-justified">
+          <p>
+            Because exploration commits to the real modes instead of a blurry average that matches nothing, there's less of an artifact to memorize, so it generalizes better. On a small video dataset, more exploration <strong>overfits less</strong> and reaches a better best FVD (<strong>30.0</strong> vs <strong>37.5</strong>), buying generalization with training compute.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <img src="static/images/results/xm_fvd_data_eff_jumpy_all.svg" alt="More exploration overfits less, reaching a better minimum FVD" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>Exploration reduces overfitting.</strong> Tracking held-out video quality over training, more exploration memorizes the training set less and reaches a better best FVD (30.0 at XM-12, versus 37.5 with no exploration).</p>
+      </div>
+
+      <!-- SOTA recipe -->
+      <div class="result-block">
+        <h3 class="title is-4">It improves even a state-of-the-art recipe</h3>
+        <div class="content has-text-justified">
+          <p>
+            Exploration even helps the strongest recipes. Added to RAE (state-of-the-art for ImageNet 256×256 three months before this work), it reaches a near-best <strong>1.43 FID with no guidance</strong> and converges <strong>~300× faster</strong> than the standard SiT recipe.
+          </p>
+        </div>
+        <div class="table-container">
+          <table class="table is-fullwidth is-hoverable result-table">
+            <thead>
+              <tr>
+                <th>Method (ImageNet 256×256, no guidance)</th>
+                <th class="has-text-centered">gFID&nbsp;↓</th>
+                <th class="has-text-centered">FDr<sup>6</sup>&nbsp;↓</th>
+                <th class="has-text-centered">IS&nbsp;↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>REPA-E <span class="has-text-grey">(VAE latent diffusion)</span></td>
+                <td class="has-text-centered">1.70</td>
+                <td class="has-text-centered">–</td>
+                <td class="has-text-centered">217.3</td>
+              </tr>
+              <tr>
+                <td>DiT<sup>DH</sup>-XL <span class="has-text-grey">(RAE baseline)</span></td>
+                <td class="has-text-centered">1.55</td>
+                <td class="has-text-centered">4.42</td>
+                <td class="has-text-centered">237.3</td>
+              </tr>
+              <tr class="ours-row">
+                <td>XDiT<sup>DH</sup>-XL, XM-2 <span class="ours-tag">Ours</span></td>
+                <td class="has-text-centered"><strong>1.43</strong></td>
+                <td class="has-text-centered"><strong>3.91</strong></td>
+                <td class="has-text-centered"><strong>240.3</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fig-caption">Lower gFID and FDr⁶ are better; higher IS is better. Adding exploration (XM-2) improves all three and reaches roughly best-in-class quality without guidance. (FDr⁶ is a newer, more reliable score than FID.) Baselines adapted from Zheng et al. (2025).</p>
+      </div>
+
+      <!-- Which models benefit most -->
+      <div class="result-block">
+        <h3 class="title is-4">And it scales how end-to-end your generative model is</h3>
+        <div class="content has-text-justified">
+          <p>
+            Exploration helped every model, but the <strong>most end-to-end</strong> ones most. The more a model explores, the <strong>fewer generation steps it needs</strong>, because exploration supplies the same expressivity. So factoring training and factoring generation are interchangeable, letting models become more end-to-end as they explore.
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <img src="static/images/results/xm_end_to_end_scaling.svg" alt="Optimal number of jumps decreases as exploration increases" class="result-img">
+          </div>
+        </div>
+        <p class="fig-caption"><strong>More end-to-end models benefit most.</strong> Comparing Jumpy models with different numbers of steps (jumps): with little exploration, more steps win, and as exploration increases, fewer steps (a more end-to-end model) become best.</p>
+      </div>
+
+      <!-- Takeaway 1 -->
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="takeaway-box">
+            <strong>Takeaway.</strong> Exploration is a genuinely new, third axis for scaling generative models, alongside parameters and data. It improves image, video, and language models alike, giving <strong>6.2×</strong> sample efficiency, <strong>4.1×</strong> FLOP efficiency, <strong>47%</strong> better parameter efficiency, a near-SOTA <strong>1.43</strong> unguided FID on ImageNet, and <strong>~300×</strong> faster convergence than the standard SiT recipe. Most importantly, these gains <em>grow with scale</em> rather than saturate, so the numbers here are a lower bound for what larger models would see. Exploration also unlocks <em>scaling generalization</em> and <em>scaling how end-to-end</em> models can be.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </section>
 
 
-<!-- More information -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-4">The paper, code, and additional resources are <span style="color: #0066cc;">under construction</span> and will be released soon. Check back for updates!</h2>
+  <!-- ===================== PART 2 ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <p class="part-eyebrow">Part 2</p>
+          <h2 class="title is-2">End-to-End Generation</h2>
+          <p class="subtitle is-5 has-text-grey">An end-to-end Explorative Model generates the same way it trains, matching diffusion with a fraction of the steps.</p>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Taken to its limit, exploration handles all the multimodality during training, so the model generates <strong>end-to-end</strong> in one step (or a few) instead of hundreds. Where diffusion pays for many modes with inference steps, end-to-end XMs pay during training and generate in a single pass. We test this on robotics and world modeling, with <strong>barely any XM-specific tuning</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Behavior cloning -->
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Behavior Cloning</h3>
+          <p class="has-text-centered content">On robot manipulation tasks, our Explorative Policy <strong>matches or beats</strong> Diffusion Policy on every task while using a <strong>single</strong> model step per action instead of 100.</p>
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable result-table has-text-centered">
+              <thead>
+                <tr>
+                  <th class="has-text-left">Method <span class="has-text-grey">(robot manipulation)</span></th>
+                  <th>Steps&nbsp;↓</th><th>Lift</th><th>Can</th><th>Square</th><th>Transport</th><th>Tool&nbsp;Hang</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="has-text-left">Diffusion Policy</td>
+                  <td>100</td><td><strong>100%</strong></td><td><strong>100%</strong></td><td>94%</td><td>72%</td><td><strong>86%</strong></td>
+                </tr>
+                <tr class="ours-row">
+                  <td class="has-text-left">Explorative Policy <span class="ours-tag">Ours</span></td>
+                  <td><strong>1</strong></td><td><strong>100%</strong></td><td><strong>100%</strong></td><td><strong>96%</strong></td><td><strong>74%</strong></td><td><strong>86%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fig-caption"><strong>Explorative Policy rivals Diffusion Policy at 100× less inference compute.</strong> Success rates on Robomimic (higher is better). "Steps" is model evaluations per action: our model uses 1, Diffusion Policy uses 100.</p>
+        </div>
+      </div>
+
+      <!-- World modeling -->
+      <div class="columns is-centered" style="margin-top: 1.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Goal-Conditioned World Modeling</h3>
+          <p class="has-text-centered content">On maze planning tasks, our Explorative World Model gets a <strong>better average score</strong> than Diffuser while running <strong>16–256× fewer</strong> steps (≈80× less on average).</p>
+          <div class="table-container">
+            <table class="table is-fullwidth is-hoverable result-table has-text-centered">
+              <thead>
+                <tr>
+                  <th class="has-text-left" rowspan="2">Method <span class="has-text-grey">(Maze2D)</span></th>
+                  <th colspan="2">U-Maze</th><th colspan="2">Medium</th><th colspan="2">Large</th><th colspan="2">Average</th>
+                </tr>
+                <tr>
+                  <th>Score&nbsp;↑</th><th>Steps&nbsp;↓</th>
+                  <th>Score&nbsp;↑</th><th>Steps&nbsp;↓</th>
+                  <th>Score&nbsp;↑</th><th>Steps&nbsp;↓</th>
+                  <th>Score&nbsp;↑</th><th>Steps&nbsp;↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="has-text-left">Diffuser</td>
+                  <td>118.7</td><td>64</td>
+                  <td><strong>128.5</strong></td><td>256</td>
+                  <td>134.4</td><td>256</td>
+                  <td>127.2</td><td>192</td>
+                </tr>
+                <tr class="ours-row">
+                  <td class="has-text-left">Explorative World Model <span class="ours-tag">Ours</span></td>
+                  <td><strong>121.4</strong></td><td><strong>4</strong></td>
+                  <td>122.9</td><td><strong>1</strong></td>
+                  <td><strong>145.8</strong></td><td><strong>1.9</strong></td>
+                  <td><strong>130.0</strong></td><td><strong>2.3</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fig-caption"><strong>Explorative World Model matches Diffuser at 16–256× less inference compute.</strong> Planning on Maze2D (higher score is better; fewer steps is cheaper). Our model scores better on average while using far fewer steps (NFEs).</p>
+        </div>
+      </div>
+
+      <!-- Takeaway 2 -->
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="takeaway-box">
+            <strong>Takeaway.</strong> Explorative Modeling enables scalable end-to-end reconstructive generative models, matching strong diffusion baselines on robotics and world modeling while using up to 256× less inference compute.
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!--BibTex citation -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">
-      BibTeX
-      <button id="copyBibtex" class="button is-small is-dark is-pulled-right">Copy</button>
-    </h2>
-    <pre><code id="bibtexCitation">@misc{gladstone2026explorativemodeling,
-  title={Explorative Modeling: Unlocking A New Scaling Axis and End-to-End Generative Modeling},
-  author={Alexi Gladstone and Heng Ji and Yilun Du},
-  year={2026},
-  note={Preprint. Under review.}
+  <!-- Getting Started / pseudocode -->
+  <section class="section hero is-light" id="getting-started">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Getting Started with XM</h2>
+          <p class="subtitle is-6 has-text-grey" style="margin-top: 0;">We provide pseudocode below for the simplest way to add XM to your generative model. It's just best-of-<em>K</em>: wrap your existing loss in a short for loop and keep the closest of <em>K</em> candidates.</p>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="code-cols">
+            <div>
+              <div class="code-label">Before exploration <span class="has-text-grey" style="font-weight:400">· one generation per step</span></div>
+<pre class="xm-code">y    = model(sample_latent())   <span class="cmt"># generate one output (from noise, a mask, …)</span>
+loss = recon_loss(y, x)         <span class="cmt"># score it against the data target x</span>
+loss.backward()</pre>
+            </div>
+            <div>
+              <div class="code-label">After exploration <span class="has-text-grey" style="font-weight:400">· explore <em>K</em>, keep the best</span></div>
+<pre class="xm-code">losses = []
+for _ in range(K):                   <span class="cmt"># explore K candidate outputs</span>
+    y = model(sample_latent())       <span class="cmt"># generate one candidate</span>
+    losses.append(recon_loss(y, x))  <span class="cmt"># score each against x</span>
+
+min(losses).backward()               <span class="cmt"># train only the closest candidate</span></pre>
+            </div>
+          </div>
+
+          <div class="code-label" style="margin-top: 1.6rem;">Example: adding exploration to a diffusion / flow model</div>
+<pre class="xm-code">t = sample_timestep()
+losses = []
+for _ in range(K):                          <span class="cmt"># explore K candidate noises</span>
+    z    = randn_like(x)                    <span class="cmt"># one candidate noise</span>
+    x_t  = add_noise(x, z, t)               <span class="cmt"># noise the data to level t</span>
+    losses.append(diffusion_loss(model(x_t, t), x, z))
+
+min(losses).backward()                      <span class="cmt"># train only the closest candidate</span></pre>
+          <p class="fig-caption" style="margin-top: 0.85rem;">This is <strong>Forward XM</strong> (explore over the model's generations). The same recipe works in discrete spaces, e.g. with masked-diffusion language models, where <code>sample_latent()</code> is a learned latent embedding. See <a href="https://github.com/alexiglad/XM" target="_blank">github.com/alexiglad/XM</a> for the full code.</p>
+          <p class="cta-line">Exploration is easy to add to an existing model: just a few lines, with no new hyperparameters. If you'd like to try it on your own problem, we'd love to hear how it goes. Feel free to <a href="mailto:alexigladstone@gmail.com">reach out</a>!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- More info -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4">Read the full <a href="static/pdfs/paper.pdf" target="_blank">paper</a> (also on <a href="https://arxiv.org/abs/2607.27372" target="_blank">arXiv</a>), browse the <a href="https://github.com/alexiglad/XM" target="_blank">code</a>, or read the <a href="https://alexiglad.github.io/blog/2026/explorative_modeling/" target="_blank">blog</a>. More is <span style="color: #0066cc;">coming soon</span>.</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BibTeX -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">
+        BibTeX
+        <button id="copyBibtex" class="button is-small is-dark is-pulled-right">Copy</button>
+      </h2>
+      <pre><code id="bibtexCitation">@misc{gladstone2026explorativemodelingunlockingpretraining,
+      title={Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation},
+      author={Alexi Gladstone and Heng Ji and Yilun Du},
+      year={2026},
+      eprint={2607.27372},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2607.27372},
 }</code></pre>
-  </div>
-</section>
+    </div>
+  </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('copyBibtex')
-  const code = document.getElementById('bibtexCitation')
-  if (btn && code) {
-    btn.addEventListener('click', () =>
-      navigator.clipboard.writeText(code.innerText.trim())
-    )
-  }
-})
-</script>
-<!--End BibTex citation -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('copyBibtex')
+    const code = document.getElementById('bibtexCitation')
+    if (btn && code) {
+      btn.addEventListener('click', () => navigator.clipboard.writeText(code.innerText.trim()))
+    }
+  })
+  </script>
 
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-  </body>
-  </html>
+</body>
+</html>
